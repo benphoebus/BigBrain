@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "prettier": {
+    "singleQuote": false
+  },
   "scripts": {
     "test": "jest backend/test/*",
     "lint": "eslint backend/src/*.js",
