@@ -8,9 +8,10 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <LoginScreen />
       <Switch>
-        <Route path="/" component={LoginScreen} exact />
         <Route path="/admin" component={DashboardScreen} />
+        <Route path="/Feedback" component={DashboardScreen} />
       </Switch>
     </Router>
   );
