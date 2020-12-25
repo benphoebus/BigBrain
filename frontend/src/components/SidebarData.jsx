@@ -6,13 +6,13 @@ import * as IconName from 'react-icons/vsc';
 const SidebarData = [
   {
     title: 'Login',
-    path: '/Login',
+    path: '/login',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text',
   },
   {
     title: 'Register',
-    path: '/Register',
+    path: '/register',
     icon: <IconName.VscAccount />,
     cName: 'nav-text',
   },

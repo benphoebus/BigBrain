@@ -1,0 +1,26 @@
+#main-container {
+    min-height: 90vh;
+}
+
+#inner-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    min-width: 500px;
+}
+
+#form-image {
+    justify-content: center;
+}
+
+#signUp-button {
+    height: 60px;
+}

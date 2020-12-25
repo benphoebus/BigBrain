@@ -3,6 +3,8 @@ import { Grid, TextField, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import logo from '../logo.svg';
+import RegisterOptions from './RegisterOptions';
+import './RegistrationForm.css';
 
 const RegistrationForm = () => {
   const formik = useFormik({
@@ -96,7 +98,7 @@ const RegistrationForm = () => {
                 Sign Up
               </Button>
               <div style={{ height: 40 }} />
-              <Button>Existing User ?</Button>
+              <RegisterOptions />
             </div>
           </form>
           <div />

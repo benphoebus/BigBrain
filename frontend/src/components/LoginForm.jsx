@@ -3,6 +3,7 @@ import { Grid, TextField, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import logo from '../logo.svg';
+import AuthOptions from './LoginOptions';
 import './LoginForm.css';
 
 function LoginForm() {
@@ -89,7 +90,8 @@ function LoginForm() {
                 Log In
               </Button>
               <div style={{ height: 40 }} />
-              <Button>Create an Account</Button>
+              {/* <Button>Create an Account</Button> */}
+              <AuthOptions />
             </div>
           </form>
           <div />
