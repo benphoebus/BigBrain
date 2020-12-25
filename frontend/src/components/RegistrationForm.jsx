@@ -3,19 +3,18 @@ import { Grid, TextField, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import logo from '../logo.svg';
-import './LoginForm.css';
 
-function LoginForm() {
+const RegistrationForm = () => {
   const formik = useFormik({
     initialValues: {
+      name: '',
       email: '',
       password: '',
     },
     onSubmit: (values) => {
-      // eslint-disable-next-line
       axios({
         method: 'post',
-        url: 'http://127.0.0.1:5005/admin/auth/login',
+        url: 'http://127.0.0.1:5005/admin/auth/register',
         data: { email: values.email, password: values.password },
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
       }).then((response) => {
@@ -46,7 +45,6 @@ function LoginForm() {
       return errors;
     },
   });
-
   return (
     <>
       <Grid container id="main-container">
@@ -62,7 +60,16 @@ function LoginForm() {
                 <img src={logo} width={400} alt="brand-logo" />
               </Grid>
               <TextField
-                id="login-form-email-input"
+                id="register-form-name-input"
+                name="name"
+                type="name"
+                label="Name"
+                margin="normal"
+                onChange={formik.handleChange}
+                value={formik.values.name}
+              />
+              <TextField
+                id="register-form-email-input"
                 name="email"
                 type="email"
                 label="Email"
@@ -71,7 +78,7 @@ function LoginForm() {
                 value={formik.values.email}
               />
               <TextField
-                id="login-form-password-input"
+                id="register-form-password-input"
                 name="password"
                 label="Password"
                 type="password"
@@ -81,15 +88,15 @@ function LoginForm() {
               />
               <div style={{ height: 20 }} />
               <Button
-                id="login-button"
+                id="signUp-button"
                 type="submit"
                 color="primary"
                 variant="contained"
               >
-                Log In
+                Sign Up
               </Button>
               <div style={{ height: 40 }} />
-              <Button>Create an Account</Button>
+              <Button>Existing User ?</Button>
             </div>
           </form>
           <div />
@@ -97,6 +104,6 @@ function LoginForm() {
       </Grid>
     </>
   );
-}
+};
 
-export default LoginForm;
+export default RegistrationForm;
