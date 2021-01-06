@@ -22,15 +22,19 @@ const RegistrationForm = () => {
       }).then((response) => {
         // eslint-disable-next-line
         console.log(response);
-      });
+        // eslint-disable-next-line
+        console.log(response.data.token);
+      })
       // .then((response) => {
       //   localStorage.setItem('token', response.data.token);
       //   setHasAccount(!false);
       //   changeURLPath();
-      // }).catch((err) => {
-      //   setCustomError(err.response.data.error);
-      //   setDisplayError(!false);
-      // });
+        .catch((err) => {
+        // setCustomError(err.response.data.error);
+        // setDisplayError(!false);
+        // eslint-disable-next-line
+         console.log(err);
+        });
     },
     validate: (values) => {
       const errors = {};

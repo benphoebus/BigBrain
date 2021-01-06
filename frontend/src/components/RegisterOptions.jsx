@@ -7,7 +7,7 @@ function RegisterOptions() {
   const history = useHistory();
 
   const Login = () => {
-    history.push('/login');
+    history.push('/');
   };
 
   return (

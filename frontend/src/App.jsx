@@ -15,10 +15,9 @@ function App() {
     <Router>
       <LoginHeader />
       <Switch>
-        <Route path="/login" component={LoginScreen} />
+        <Route path="/" exact component={LoginScreen} />
         <Route path="/register" component={RegistrationScreen} />
         <Route path="/admin" component={DashboardScreen} />
-        <Route path="/Feedback" component={DashboardScreen} />
       </Switch>
     </Router>
   );

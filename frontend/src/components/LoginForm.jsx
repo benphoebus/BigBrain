@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import logo from '../logo.svg';
 import AuthOptions from './LoginOptions';
+import AdminPage from './AdminPage';
 import './LoginForm.css';
 
 function LoginForm() {
+  const [hasAccount, setHasAccount] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -22,6 +24,7 @@ function LoginForm() {
       }).then((response) => {
         // eslint-disable-next-line
         console.log(response);
+        setHasAccount(!false);
       });
       // .then((response) => {
       //   localStorage.setItem('token', response.data.token);
@@ -50,53 +53,59 @@ function LoginForm() {
 
   return (
     <>
-      <Grid container id="main-container">
-        <Grid
-          container
-          item
-          id="inner-container"
-        >
-          <div />
-          <form onSubmit={formik.handleSubmit}>
-            <div id="form-container">
-              <Grid container id="form-image">
-                <img src={logo} width={400} alt="brand-logo" />
-              </Grid>
-              <TextField
-                id="login-form-email-input"
-                name="email"
-                type="email"
-                label="Email"
-                margin="normal"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-              <TextField
-                id="login-form-password-input"
-                name="password"
-                label="Password"
-                type="password"
-                margin="normal"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              <div style={{ height: 20 }} />
-              <Button
-                id="login-button"
-                type="submit"
-                color="primary"
-                variant="contained"
-              >
-                Log In
-              </Button>
-              <div style={{ height: 40 }} />
-              {/* <Button>Create an Account</Button> */}
-              <AuthOptions />
-            </div>
-          </form>
-          <div />
-        </Grid>
-      </Grid>
+      {hasAccount ? (
+        <AdminPage />
+      ) : (
+        <>
+          <Grid container id="main-container">
+            <Grid
+              container
+              item
+              id="inner-container"
+            >
+              <div />
+              <form onSubmit={formik.handleSubmit}>
+                <div id="form-container">
+                  <Grid container id="form-image">
+                    <img src={logo} width={400} alt="brand-logo" />
+                  </Grid>
+                  <TextField
+                    id="login-form-email-input"
+                    name="email"
+                    type="email"
+                    label="Email"
+                    margin="normal"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
+                  <TextField
+                    id="login-form-password-input"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    margin="normal"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                  />
+                  <div style={{ height: 20 }} />
+                  <Button
+                    id="login-button"
+                    type="submit"
+                    color="primary"
+                    variant="contained"
+                  >
+                    Log In
+                  </Button>
+                  <div style={{ height: 40 }} />
+                  {/* <Button>Create an Account</Button> */}
+                  <AuthOptions />
+                </div>
+              </form>
+              <div />
+            </Grid>
+          </Grid>
+        </>
+      )}
     </>
   );
 }
