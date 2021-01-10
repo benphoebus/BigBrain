@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import logo from '../logo.svg';
@@ -9,6 +10,12 @@ import './LoginForm.css';
 
 function LoginForm() {
   const [hasAccount, setHasAccount] = useState(false);
+  const history = useHistory();
+
+  const changeURLPath = () => {
+    history.push('/admin');
+  };
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -25,15 +32,14 @@ function LoginForm() {
         // eslint-disable-next-line
         console.log(response);
         setHasAccount(!false);
+        localStorage.setItem('token', response.data.token);
+        changeURLPath();
+      }).catch((err) => {
+        // setCustomError(err.response.data.error);
+        // setDisplayError(!false);
+        // eslint-disable-next-line
+        console.log(err);
       });
-      // .then((response) => {
-      //   localStorage.setItem('token', response.data.token);
-      //   setHasAccount(!false);
-      //   changeURLPath();
-      // }).catch((err) => {
-      //   setCustomError(err.response.data.error);
-      //   setDisplayError(!false);
-      // });
     },
     validate: (values) => {
       const errors = {};

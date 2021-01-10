@@ -8,12 +8,12 @@ import LoginScreen from './screens/LoginScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
 import './App.css';
-import LoginHeader from './components/LoginHeader';
+// import LoginHeader from './components/LoginHeader';
 
 function App() {
   return (
     <Router>
-      <LoginHeader />
+      {/* <LoginHeader /> */}
       <Switch>
         <Route path="/" exact component={LoginScreen} />
         <Route path="/register" component={RegistrationScreen} />

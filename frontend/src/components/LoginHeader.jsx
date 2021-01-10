@@ -12,8 +12,6 @@ function LoginHeader() {
 
   const ShowSidebar = () => {
     setSidebar(!sidebar);
-    // eslint-disable-next-line
-    console.log('click');
   };
 
   return (
