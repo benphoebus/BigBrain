@@ -7,8 +7,8 @@ import {
 import LoginScreen from './screens/LoginScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
+import CreateNewQuizScreen from './screens/CreateNewQuizScreen';
 import './App.css';
-// import LoginHeader from './components/LoginHeader';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/" exact component={LoginScreen} />
         <Route path="/register" component={RegistrationScreen} />
         <Route path="/admin" component={DashboardScreen} />
+        <Route path="/create-quiz" component={CreateNewQuizScreen} />
       </Switch>
     </Router>
   );

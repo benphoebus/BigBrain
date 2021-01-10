@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import uuid from 'react-uuid';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import VerifiedUserSidebarData from './VerifiedUserSidebarData';
 import './Navbar.css';
 import logo from '../logo.svg';
 
@@ -77,6 +79,16 @@ function Navbar() {
                   <AiIcons.AiOutlineClose onClick={showSidebar} />
                 </Link>
               </li>
+              {VerifiedUserSidebarData.map((item) => (
+                <li key={uuid()} className={item.cName}>
+                  <Link to={item.path} className="nav-button" onClick={showSidebar}>
+                    {item.icon}
+                    <span>
+                      {item.title}
+                    </span>
+                  </Link>
+                </li>
+              ))}
               <li className="admin-navbar-toggle">
                 <span>
                   <button type="button" onClick={HandleLogout}>
