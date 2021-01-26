@@ -28,9 +28,7 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
-    setSidebar(!false);
-    // eslint-disable-next-line
-    console.log('hello');
+    setSidebar(!sidebar);
   };
 
   const HandleLogout = () => {
@@ -81,7 +79,7 @@ function Navbar() {
               </li>
               {VerifiedUserSidebarData.map((item) => (
                 <li key={uuid()} className={item.cName}>
-                  <Link to={item.path} className="nav-button" onClick={showSidebar}>
+                  <Link to={item.path} className="nav-button">
                     {item.icon}
                     <span>
                       {item.title}

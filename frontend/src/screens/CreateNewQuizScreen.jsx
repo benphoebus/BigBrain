@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import CreateQuiz from '../components/CreateQuiz';
 
 function CreateNewQuizScreen() {
   return (
     <>
       <Navbar />
-      Create a New Quiz
+      <CreateQuiz />
       <Footer />
     </>
   );
